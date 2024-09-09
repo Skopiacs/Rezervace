@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezervace vstupenky</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e3f2fd; /* Světle modrá barva pozadí */
+            padding: 20px;
+        }
+        .reservation-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .reservation-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #1565c0; /* Tmavší modrá pro nadpis */
+        }
+        .form-group {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group textarea {
+            resize: vertical;
+        }
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #42a5f5; /* Modré tlačítko */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #1e88e5;
+        }
+        .singer-photo {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .singer-photo img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .concert-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #0d47a1;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="reservation-form">
+    <!-- Nadpis koncertu -->
+    <div class="concert-title">Taylor Skopový - Jediný megakoncert v životě</div>
+
+    <!-- Obrázek zpěváka -->
+    <div class="singer-photo">
+        <img src="https://844913c463.cbaul-cdnwnd.com/9d17b67b0614493d8629ad199896ad7d/200000003-cb5f1cb5f4/DeWatermark.ai_1725887744982-5.webp" alt="Zpěvák Taylor Skopový">
+    </div>
+
+    <h2>Rezervace vstupenky</h2>
+    <form action="submit-reservation.php" method="POST">
+        <!-- Jméno a příjmení -->
+        <div class="form-group">
+            <label for="name">Jméno a příjmení</label>
+            <input type="text" id="name" name="name" placeholder="Zadejte své jméno a příjmení" required>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Zadejte svůj email" required>
+        </div>
+
+        <!-- Počet vstupenek -->
+        <div class="form-group">
+            <label for="tickets">Počet vstupenek</label>
+            <input type="number" id="tickets" name="tickets" min="1" placeholder="Zadejte počet vstupenek" required>
+        </div>
+
+        <!-- Datum koncertu (pevně nastavené datum a čas) -->
+        <div class="form-group">
+            <label for="date">Datum koncertu</label>
+            <input type="text" id="date" name="date" value="Sobota 21.9.2024 v 19:00" readonly>
+        </div>
+
+        <!-- Typ vstupenky -->
+        <div class="form-group">
+            <label for="ticket-type">Typ vstupenky</label>
+            <select id="ticket-type" name="ticket-type" required>
+                <option value="normal">Normální</option>
+                <option value="vip">VIP</option>
+            </select>
+        </div>
+
+        <!-- Poznámky -->
+        <div class="form-group">
+            <label for="notes">Poznámky (volitelné)</label>
+            <textarea id="notes" name="notes" rows="4" placeholder="Zadejte případné poznámky (volitelné)"></textarea>
+        </div>
+
+        <!-- Tlačítko pro odeslání -->
+        <div class="form-group">
+            <button type="submit">Rezervovat nyní</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
